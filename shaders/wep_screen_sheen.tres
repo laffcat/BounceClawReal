@@ -3,4 +3,5 @@
 [resource]
 flags_transparent = true
 flags_use_shadow_to_opacity = true
+flags_vertex_lighting = true
 albedo_color = Color( 0.992157, 0.992157, 0.992157, 0.231373 )
