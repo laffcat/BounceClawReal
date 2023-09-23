@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://weapons/wep_rail.glb" type="PackedScene" id=1]
+[ext_resource path="res://weapons/wep_rail.gd" type="Script" id=2]
+[ext_resource path="res://shaders/wep_led_color.gdshader" type="Shader" id=3]
+[ext_resource path="res://shaders/wep_screen_sheen.tres" type="Material" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+next_pass = ExtResource( 4 )
+shader = ExtResource( 3 )
+shader_param/screen_color = Color( 0.152941, 0.117647, 0.180392, 1 )
+
+[node name="wep_rail" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Mesh" parent="." index="0"]
+sorting_offset = 20.0
+material/1 = SubResource( 2 )
+
+[node name="Barrel" type="Spatial" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070256, -0.375062 )

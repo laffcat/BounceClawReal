@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://shaders/wep_led_color.gdshader" type="Shader" id=1]
+[ext_resource path="res://shaders/wep_screen_sheen.tres" type="Material" id=2]
+
+[resource]
+next_pass = ExtResource( 2 )
+shader = ExtResource( 1 )
+shader_param/screen_color = Color( 0.152941, 0.117647, 0.180392, 1 )

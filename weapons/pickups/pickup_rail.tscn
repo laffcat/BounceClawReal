@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://weapons/wep_rail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://misc/shadow.png" type="Texture" id=2]
+[ext_resource path="res://weapons/pickups/pickup.gd" type="Script" id=3]
+
+[sub_resource type="CylinderShape" id=1]
+height = 0.6
+radius = 0.3
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.2, 0.2 )
+
+[node name="Pickup" type="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="."]
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317907, 0 )
+shape = SubResource( 1 )
+
+[node name="SpinPoint" type="Spatial" parent="."]
+transform = Transform( 0.915445, 0, 0.402341, 0, 1, 0, -0.402341, 0, 0.915445, 0, 0.265314, 0 )
+
+[node name="wep_rail" parent="SpinPoint" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0774438, 0.164723 )
+
+[node name="Shadow" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0151018, 0 )
+mesh = SubResource( 3 )
+
+[connection signal="body_entered" from="Area" to="." method="get_picked"]
