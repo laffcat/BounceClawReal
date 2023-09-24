@@ -9,6 +9,11 @@ pmove_extended.gd
 - Sets footstep sfx ground type
 """
 onready var base = $Head/Camera/ViewModel/base
+onready var hud_gun_root = $Head/Camera/HudGunRoot
+onready var hud_new_gun = $Head/Camera/HudNewGun
+onready var q = $Head/Camera/Q
+onready var ray_cast = $Head/Camera/RayCast
+
 var wep_mgr 
 
 var ladder_normal : Vector3 = Vector3.UP

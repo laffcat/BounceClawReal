@@ -11,10 +11,70 @@ var weapons_right = []
 var wep_active_left : Weapon
 var wep_active_right : Weapon
 
+var wep_queue = []
+
+var hud_new_active = false
+var hud_hover_l = false
+var hud_hover_r = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+
+func _process(delta):
+	if hud_new_active:
+		if hud_hover_l:
+			if Input.is_action_just_released("menu_left"):
+				player.hud_gun_root.remove_child(wep_queue[0])
+				add_weapon(wep_queue[0])
+				wep_queue.remove(0)
+				if wep_queue.size():
+					player.q.remove_child(wep_queue[0])
+					player.hud_gun_root.add_child(wep_queue[0])
+					wep_queue[0].global_transform = player.hud_gun_root.global_transform
+				else:
+					player.hud_new_gun.visible = false
+					hud_new_active = false
+				hud_hover_l = false
+				hud_hover_r = false
+				return
+		else:
+			if Input.is_action_just_pressed("menu_left"):
+				hud_hover_l = true
+		if hud_hover_r:
+			if Input.is_action_just_released("menu_right"):
+				player.hud_gun_root.remove_child(wep_queue[0])
+				add_weapon(wep_queue[0], false)
+				wep_queue.remove(0)
+				if wep_queue.size():
+					player.q.remove_child(wep_queue[0])
+					player.hud_gun_root.add_child(wep_queue[0])
+					wep_queue[0].global_transform = player.hud_gun_root.global_transform
+				else:
+					player.hud_new_gun.visible = false
+					hud_new_active = false
+				hud_hover_l = false
+				hud_hover_r = false
+				return
+		else:
+			if Input.is_action_just_pressed("menu_right"):
+				hud_hover_r = true
+
+
+func stage_weapon(wep : Weapon):
+	if !wep_queue.size():
+		player.hud_gun_root.add_child(wep)
+		wep.global_transform = player.hud_gun_root.global_transform
+		player.hud_new_gun.visible = true
+		hud_new_active = true
+	else:
+		player.q.add_child(wep)
+		wep.global_transform = player.q.global_transform
+	wep_queue.append(wep)
+	
+
 
 func add_weapon(wep : Weapon, left = true):
 	var pwnage : Transform   ;   var pwner : Node

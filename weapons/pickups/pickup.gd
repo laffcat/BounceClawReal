@@ -29,7 +29,7 @@ func _process(delta):
 func get_picked(body: Node):
 	if body is Player:
 		spin_point.remove_child(my_item)
-		body.wep_mgr.add_weapon(my_item)
+		body.wep_mgr.stage_weapon(my_item)
 		yield(get_tree(), "idle_frame")
 		shadow.queue_free()
 		yield(get_tree(), "idle_frame")

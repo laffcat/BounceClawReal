@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/view_extended.gd" type="Script" id=1]
 [ext_resource path="res://scripts/pmove_extended.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://audio/windfall_1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://audio/concrete_0.ogg" type="AudioStream" id=5]
 [ext_resource path="res://weapons/base.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/ui/hud_pickup.png" type="Texture" id=7]
 
 [sub_resource type="CylinderShape" id=1]
 
@@ -30,6 +31,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -0.142484 )
 
 [node name="base" parent="Head/Camera/ViewModel" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.338454, 0.987213 )
+
+[node name="HudNewGun" type="Sprite3D" parent="Head/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.524385, -0.783633 )
+visible = false
+pixel_size = 0.002
+billboard = 1
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="HudGunRoot" type="Spatial" parent="Head/Camera"]
+transform = Transform( -2.62268e-08, 0, -0.6, -0.290593, 0.524934, 1.27022e-08, 0.524934, 0.290593, -2.29456e-08, -0.0855222, 0.378838, -0.654523 )
+
+[node name="Q" type="Spatial" parent="Head/Camera"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0.574887 )
+
+[node name="RayCast" type="RayCast" parent="Head/Camera"]
+cast_to = Vector3( 0, 0, -100 )
 
 [node name="Audio" type="Node" parent="."]
 script = ExtResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/level_controller.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://WepMgr.gd" type="Script" id=4]
 [ext_resource path="res://weapons/pickups/pickup_rail.tscn" type="PackedScene" id=5]
 [ext_resource path="res://weapons/pickups/pickup_pistol.tscn" type="PackedScene" id=6]
+[ext_resource path="res://weapons/pickups/pickup_rocket.tscn" type="PackedScene" id=7]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
@@ -17,6 +18,15 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -151 )
 
 [node name="Test_Level" parent="." instance=ExtResource( 3 )]
+
+[node name="Pickup" parent="Test_Level" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -26.2218, 0.2, -168.872 )
+
+[node name="Pickup2" parent="Test_Level" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -17.1047, 0.2, -177.178 )
+
+[node name="Pickup3" parent="Test_Level" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -27.0197, 0.2, -160.716 )
 
 [node name="Pickup" parent="." instance=ExtResource( 5 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -18.5043, 0.2, -166.578 )
