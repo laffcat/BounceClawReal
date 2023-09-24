@@ -3,7 +3,7 @@ class_name Weapon
 extends Node
 
 var mesh : MeshInstance
-
+var proj : PackedScene
 #export var screen_color: Color setget screen_color_set
 #
 #func screen_color_set(new_color: Color):
@@ -19,6 +19,9 @@ var mesh : MeshInstance
 func _ready():
 	pass # Replace with function body.
 
+func shoot(target: Vector3):
+	var gaming = proj.new()
+	#gaming.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

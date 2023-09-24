@@ -1,8 +1,5 @@
-extends Weapon
-
-onready var top_mount = $TopMount
-onready var barrel = $Barrel
-onready var animation_player = $AnimationPlayer
+class_name Projectile
+extends KinematicBody
 
 # Declare member variables here. Examples:
 # var a = 2
