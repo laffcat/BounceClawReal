@@ -1,12 +1,44 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/level_controller.gd" type="Script" id=2]
-[ext_resource path="res://Test_Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/arena_base.tscn" type="PackedScene" id=3]
 [ext_resource path="res://WepMgr.gd" type="Script" id=4]
 [ext_resource path="res://weapons/pickups/pickup_rail.tscn" type="PackedScene" id=5]
 [ext_resource path="res://weapons/pickups/pickup_pistol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://weapons/pickups/pickup_rocket.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/surf_ramp_arch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/surf_ramp_straight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/Material.material" type="Material" id=10]
+[ext_resource path="res://levels/ramp.tres" type="Material" id=11]
+
+[sub_resource type="Environment" id=4]
+ambient_light_color = Color( 0.807843, 0.92549, 0.952941, 1 )
+fog_enabled = true
+fog_color = Color( 0.501961, 0.6, 0.701961, 1 )
+fog_depth_end = 251.4
+fog_depth_curve = 1.41421
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 10, 1, 30 )
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "surf_ramp_straight_Cube"
+surfaces/0 = {
+"aabb": AABB( -1, -1, -2.27309, 2, 2.00001, 4.54618 ),
+"array_data": PoolByteArray( 0, 0, 0, 0, 0, 0, 128, 63, 81, 122, 17, 192, 127, 127, 214, 105, 0, 57, 0, 56, 0, 0, 0, 0, 0, 0, 128, 63, 81, 122, 17, 192, 84, 42, 214, 105, 0, 57, 0, 56, 0, 0, 0, 0, 0, 0, 128, 63, 81, 122, 17, 192, 172, 42, 42, 105, 0, 57, 0, 58, 0, 0, 128, 63, 0, 0, 128, 191, 81, 122, 17, 192, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 81, 122, 17, 192, 127, 127, 214, 105, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 81, 122, 17, 192, 84, 42, 214, 105, 0, 54, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 81, 122, 17, 192, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 81, 122, 17, 192, 172, 42, 42, 105, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 81, 122, 17, 192, 127, 127, 214, 105, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 81, 122, 17, 64, 0, 129, 127, 63, 0, 48, 85, 55, 0, 0, 128, 191, 0, 0, 128, 191, 81, 122, 17, 64, 172, 42, 42, 105, 0, 54, 85, 58, 0, 0, 0, 0, 0, 0, 128, 63, 81, 122, 17, 64, 84, 42, 214, 105, 0, 57, 85, 55, 0, 0, 0, 0, 0, 0, 128, 63, 81, 122, 17, 64, 172, 42, 42, 105, 0, 57, 85, 58, 0, 0, 128, 63, 0, 0, 128, 191, 81, 122, 17, 64, 0, 129, 127, 63, 0, 54, 85, 55, 0, 0, 128, 63, 0, 0, 128, 191, 81, 122, 17, 64, 84, 42, 214, 105, 0, 54, 85, 55 ),
+"array_index_data": PoolByteArray( 10, 0, 2, 0, 12, 0, 10, 0, 7, 0, 2, 0, 8, 0, 4, 0, 0, 0, 5, 0, 11, 0, 1, 0, 5, 0, 14, 0, 11, 0, 6, 0, 13, 0, 3, 0, 6, 0, 9, 0, 13, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 21,
+"material": ExtResource( 10 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 15
+}
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -1, -1, 2.2731, 0, 1, -2.2731, 0, 1, 2.2731, -1, -1, 2.2731, -1, -1, -2.2731, 0, 1, -2.2731, -1, -1, -2.2731, 1, -1, -2.2731, 0, 1, -2.2731, 1, -1, -2.2731, 0, 1, 2.2731, 0, 1, -2.2731, 1, -1, -2.2731, 1, -1, 2.2731, 0, 1, 2.2731, -1, -1, -2.2731, 1, -1, 2.2731, 1, -1, -2.2731, -1, -1, -2.2731, -1, -1, 2.2731, 1, -1, 2.2731 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
@@ -14,28 +46,92 @@ script = ExtResource( 2 )
 [node name="WepMgr" type="Node" parent="."]
 script = ExtResource( 4 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.619039, 0.644311, -0.449059, 0, 0.571788, 0.820402, 0.78536, -0.507861, 0.353959, 0, 40.2256, 0 )
+light_color = Color( 0.980392, 0.972549, 0.937255, 1 )
+light_energy = 0.746
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -151 )
+transform = Transform( -0.060073, 0, -0.998194, 0, 1, 0, 0.998194, 0, -0.060073, -17.3692, 7.57222, -162.067 )
 
-[node name="Test_Level" parent="." instance=ExtResource( 3 )]
+[node name="Pickup9" parent="." instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.902066, 1.08414, -168.872 )
 
-[node name="Pickup" parent="Test_Level" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -26.2218, 0.2, -168.872 )
+[node name="Pickup10" parent="." instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 8.21503, 1.08414, -177.178 )
 
-[node name="Pickup2" parent="Test_Level" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -17.1047, 0.2, -177.178 )
-
-[node name="Pickup3" parent="Test_Level" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -27.0197, 0.2, -160.716 )
+[node name="Pickup11" parent="." instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -1.69997, 1.08414, -160.716 )
 
 [node name="Pickup" parent="." instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -18.5043, 0.2, -166.578 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 6.81543, 1.08414, -166.578 )
 
 [node name="Pickup2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -13.0388, 0.2, -169.151 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 12.2809, 1.08414, -169.151 )
 
 [node name="Pickup3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -12.9224, 0.2, -164.013 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 12.3973, 1.08414, -164.013 )
 
 [node name="Pickup4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -18.4484, 0.2, -158.362 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 6.87133, 1.08414, -158.362 )
+
+[node name="Pickup5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -15.9652, 1.08414, -173.362 )
+
+[node name="Pickup6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 4.01263, 1.08414, -153.451 )
+
+[node name="Pickup7" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 23.5581, 1.08414, -168.935 )
+
+[node name="Pickup8" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 16.6913, 1.08414, -179.712 )
+
+[node name="surf_ramp_arch3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 10, 0, 0, 0, 6.77427, 2.8292, 0, -1.33663, 14.3389, -36.2633, -48.9823, 50.1259 )
+
+[node name="surf_ramp_arch4" parent="." instance=ExtResource( 8 )]
+transform = Transform( 10, 0, 0, 0, 6.90483, 0.0539942, 0, -0.0255091, 14.6152, 33.9371, -56.5098, -21.3858 )
+
+[node name="arena_base" parent="." instance=ExtResource( 3 )]
+
+[node name="arena_base2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="arena_base2"]
+transform = Transform( 1.00236, 0, 0, 0, 1.00236, 0, 0, 0, 1.00236, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="arena_base2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="surf_ramp_arch" parent="." instance=ExtResource( 8 )]
+transform = Transform( 11.6673, 0, 0, 0, 6, 0, 0, 0, 6, 66.0017, 3.84912, -161.3 )
+
+[node name="surf_ramp_straight2" type="Spatial" parent="."]
+transform = Transform( 12, 0, 0, 0, 7.69459, -5.68133, 0, 4.15596, 22.5147, 33.9442, -48.9982, -65.4101 )
+
+[node name="Cube" type="MeshInstance" parent="surf_ramp_straight2"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../../surf_ramp_straight2")
+material/0 = ExtResource( 11 )
+
+[node name="StaticBody" type="StaticBody" parent="surf_ramp_straight2/Cube"]
+
+[node name="CollisionShape" type="CollisionShape" parent="surf_ramp_straight2/Cube/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="surf_ramp_straight4" parent="." instance=ExtResource( 9 )]
+transform = Transform( -7.59619, 3.21729, 17.4295, 0, 11.2574, -8.31192, -9.28966, -2.63079, -14.2522, 40.91, -48.1194, 76.3088 )
+
+[node name="surf_ramp_straight3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 12, 0, 0, 0, 0.458143, -23.9825, 0, 11.9913, 0.916286, 107.866, -52.4903, 10.2359 )
+
+[node name="surf_ramp_straight5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 6.78375, 9.89131, 0.755823, 0, 0.458143, -23.9825, -9.89852, 6.77881, 0.517988, -106.209, -38.977, -3.95055 )
+
+[node name="surf_ramp_straight" parent="." instance=ExtResource( 9 )]
+transform = Transform( 20, 0, 0, 0, 14.7343, 0, 0, 0, 30, -25.6996, 15.3482, 212.799 )

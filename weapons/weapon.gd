@@ -1,9 +1,22 @@
-tool
 class_name Weapon
 extends Node
 
+signal clock_finished
+
 var mesh : MeshInstance
-var proj : PackedScene
+var clk = 0.0 # clock
+var active = false
+var shooting = false
+var animation_player: AnimationPlayer
+
+
+export var shot_speed: float
+export var shot_num: int 
+var shot_count = 0
+
+export var time_cooldown: float
+export var time_activate: float
+export var time_deactivate: float
 #export var screen_color: Color setget screen_color_set
 #
 #func screen_color_set(new_color: Color):
@@ -19,10 +32,26 @@ var proj : PackedScene
 func _ready():
 	pass # Replace with function body.
 
-func shoot(target: Vector3):
-	var gaming = proj.new()
-	#gaming.
+func _process(delta):
+	if active:
+		if clk > 0.0:
+			clk -= delta
+			if clk < 0.0:
+				clk = 0.0
+		else:
+			emit_signal("clock_finished")
 
+func shoot(target: Vector3):
+	pass
+
+func activate():
+	active = true
+	animation_player.play("activate")
+	clk = time_activate
+
+func deactivate():
+	animation_player.play("deactivate")
+	clk = time_activate
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

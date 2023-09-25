@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://textures/world/brick.png" type="Texture" id=1]
+
+[resource]
+albedo_color = Color( 0.360784, 0.988235, 0.647059, 1 )
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.02, 0.02, 0.02 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 10.5561

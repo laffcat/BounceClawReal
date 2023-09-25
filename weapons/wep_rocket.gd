@@ -2,7 +2,7 @@ extends Weapon
 
 onready var top_mount = $TopMount
 onready var barrel = $Barrel
-onready var animation_player = $AnimationPlayer
+var proj : PackedScene
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,9 +11,14 @@ onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	animation_player = $AnimationPlayer
+	mesh = $Light
+	proj = preload("res://weapons/projectiles/proj_bullet.tscn")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func shoot(target: Vector3 = Vector3.UP):
+	animation_player.play("shoot")
+	var pew = proj.instance()
+	pew.global_transform = barrel.global_transform
+	#pew.global_rotation = pew.global_position.angle_to(target)
+	clk = time_cooldown + rand_range(0.0, 0.2)
+	

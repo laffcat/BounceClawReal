@@ -34,11 +34,13 @@ var ground_normal : Vector3 = Vector3.UP
 var hangtime : float = 0.2
 var impact_velocity : float = 0.0
 var is_dead : bool = false
-var jump_press : bool = false
+var jump_press : bool = true
 var crouch_press : bool = false
 var ground_plane : bool = false
 var prev_y : float = 0.0
 var velocity : Vector3 = Vector3.ZERO
+
+export var can_yumping = false
 
 var my_head : Node
 
@@ -67,7 +69,7 @@ func _input(_event):
 	
 	movespeed = WALKSPEED if Input.is_action_pressed("shift") else MAXSPEED
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and can_yumping:
 		if !jump_press:
 			jump_press = true
 		else:

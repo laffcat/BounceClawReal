@@ -251,6 +251,11 @@ tracks/4/keys = PoolRealArray( 0, 1, 0, 0, 0.0192681, 0, 0, 0, 1, 1, 1, 1, 0.4, 
 
 [node name="wep_pistol" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+shot_speed = 20.0
+shot_num = 5
+time_cooldown = 0.4
+time_activate = 0.5
+time_deactivate = 0.5
 
 [node name="Light" parent="." index="1"]
 material/1 = ExtResource( 3 )

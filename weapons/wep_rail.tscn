@@ -207,6 +207,11 @@ tracks/4/keys = PoolRealArray( 0, 1, 0, 0, 0.0728837, 0, 0, 0, 1, 1, 1, 1, 0.2, 
 
 [node name="wep_rail" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+shot_speed = 40.0
+shot_num = 1
+time_cooldown = 3.0
+time_activate = 0.9
+time_deactivate = 0.8
 
 [node name="Mesh" parent="." index="0"]
 sorting_offset = 20.0

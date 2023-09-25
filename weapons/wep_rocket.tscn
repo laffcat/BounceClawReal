@@ -250,6 +250,11 @@ tracks/4/keys = PoolRealArray( 0, 1, 0, 0, 0.0560182, 0, 0, 0, 1, 1, 1, 1, 0.2, 
 
 [node name="wep_rocket" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+shot_speed = 20.0
+shot_num = 2
+time_cooldown = 0.9
+time_activate = 0.5
+time_deactivate = 0.2
 
 [node name="Mesh" parent="." index="1"]
 material/1 = ExtResource( 3 )
